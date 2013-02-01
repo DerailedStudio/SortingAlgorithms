@@ -8,6 +8,27 @@ namespace SortingAlgorithms
 {
     class Program
     {
+        public static int[] insertionSort(int[] a)
+        {
+            int[] b = new int[a.Length];
+            a.CopyTo(b, 0);
+            
+            for (int i = 0; i < b.Length; i++)
+            {
+                for (int j = i; j > 0; j--)
+                {
+                    if (b[j] < b[j-1])
+                    {
+                        int temp = b[j];
+                        b[j] = b[j-1];
+                        b[j-1] = temp;
+                    }
+                }
+            }
+
+            return b;
+
+        }
         public static int[] selectionSort(int[] a)
         {
             int[] b = new int[a.Length];
@@ -63,8 +84,8 @@ namespace SortingAlgorithms
             int[] a = { 4, 78, 34, 213, 768, 45, 1, 24, 65, 1, 3456, 2, 54, 87, 54, 34, 90, 0 };
 
             //int[] b = bubbleSort(a);
-            int[] b = selectionSort(a);
-
+            //int[] b = selectionSort(a);
+            int[] b = insertionSort(a);
             for (int i = 0; i < b.Length; i++)
             {
                 System.Console.WriteLine(b[i]);
